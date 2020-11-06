@@ -4,6 +4,9 @@ This is a static shoes website which is build up using Django. It has options li
 This front-end of this website is not yet completed.
 But, the backend posture is fully optimized and completed.
 
+### **Here you can see the Screenshots**
+
+
 ![WhatsApp Image 2020-11-06 at 9 00 29 PM](https://user-images.githubusercontent.com/39701802/98393047-c51e5680-207e-11eb-8067-142851118e46.jpeg)
 
 
