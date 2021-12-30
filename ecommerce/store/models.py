@@ -39,24 +39,18 @@ class Order(models.Model):
 
     @property
     def shipping(self):
-        shipping = False
         orderitems = self.orderitem_set.all()
-        for i in orderitems:
-            if i.product.digital == False:
-                shipping = True
-        return shipping
+        return any(i.product.digital == False for i in orderitems)
 
     @property
     def get_cart_total(self):
         orderitems = self.orderitem_set.all()
-        total = sum([item.get_total for item in orderitems])
-        return total
+        return sum(item.get_total for item in orderitems)
 
     @property
     def get_cart_items(self):
         orderitems = self.orderitem_set.all()
-        total = sum([item.quantity for item in orderitems])
-        return total
+        return sum(item.quantity for item in orderitems)
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product,on_delete=models.SET_NULL, blank=True, null=True)
@@ -66,8 +60,7 @@ class OrderItem(models.Model):
 
     @property
     def get_total(self):
-        total = self.product.price * self.quantity
-        return total
+        return self.product.price * self.quantity
 
 
 
